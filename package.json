@@ -1,8 +1,8 @@
 {
-  "name": "trash-launcher",
-  "productName": "trash-launcher",
+  "name": "backdoor exe",
+  "productName": "backdoor exe",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "My Electron application to inject a back door on macos (only thought for educational reasons in order to show my class",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
